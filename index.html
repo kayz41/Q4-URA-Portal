@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Sets the character encoding and supports responsive layouts. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Text displayed in the browser tab. -->
+    <title>TIN Registration Portal | Uganda Revenue Authority</title>
+
+    <!-- Loads all page styling from the external stylesheet. -->
+    <link rel="stylesheet" href="portal.css">
+</head>
+<body>
+
+    <!-- HEADER: Contains the URA logo and portal heading. -->
+    <header class="site-header">
+        <img src="ura-logo.png" alt="Uganda Revenue Authority logo" class="ura-logo">
+        <h1>TIN Registration Portal</h1>
+    </header>
+
+    <!-- INFORMATION BAR: Important reminder for applicants. -->
+    <aside class="information-bar">
+        <p>Have your National ID ready before starting.</p>
+    </aside>
+
+    <main class="form-container">
+
+        <!-- FORM TYPE: Radio inputs are styled as toggle-style buttons. -->
+        <section class="taxpayer-choice" aria-label="Choose taxpayer type">
+            <input type="radio" id="individual" name="taxpayer-type" value="individual" checked>
+            <label for="individual">Individual Taxpayer</label>
+
+            <input type="radio" id="business" name="taxpayer-type" value="business">
+            <label for="business">Business Entity</label>
+        </section>
+
+        <!-- SECTION A: Individual taxpayer information. -->
+        <form action="#" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend>Section A: Individual Taxpayer Details</legend>
+
+                <div class="form-grid">
+
+                    <!-- Required full name field. -->
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full-name" required
+                               placeholder="Enter your full name">
+                    </div>
+
+                    <!-- NIN must contain two capital letters followed by 12 letters or digits. -->
+                    <div class="form-group">
+                        <label for="nin">NIN</label>
+                        <input type="text" id="nin" name="nin" required
+                               minlength="14" maxlength="14"
+                               pattern="[A-Z]{2}[A-Z0-9]{12}"
+                               title="Enter two capital letters followed by twelve capital letters or digits."
+                               placeholder="Example: CM123456789012">
+                    </div>
+
+                    <!-- Date of birth field. -->
+                    <div class="form-group">
+                        <label for="date-of-birth">Date of Birth</label>
+                        <input type="date" id="date-of-birth" name="date-of-birth">
+                    </div>
+
+                    <!-- Gender radio choices share one name so only one can be selected. -->
+                    <fieldset class="gender-group">
+                        <legend>Gender</legend>
+                        <div class="radio-options">
+                            <label for="male">
+                                <input type="radio" id="male" name="gender" value="Male">
+                                Male
+                            </label>
+
+                            <label for="female">
+                                <input type="radio" id="female" name="gender" value="Female">
+                                Female
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- District selection with five Ugandan districts. -->
+                    <div class="form-group">
+                        <label for="district">District</label>
+                        <select id="district" name="district">
+                            <option value="">Select your district</option>
+                            <option value="Kampala">Kampala</option>
+                            <option value="Wakiso">Wakiso</option>
+                            <option value="Mukono">Mukono</option>
+                            <option value="Jinja">Jinja</option>
+                            <option value="Gulu">Gulu</option>
+                        </select>
+                    </div>
+
+                    <!-- Required telephone number. -->
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required
+                               placeholder="Enter your phone number">
+                    </div>
+
+                    <!-- Email field uses built-in browser email validation. -->
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email"
+                               placeholder="example@email.com">
+                    </div>
+
+                    <!-- File input accepts JPG and PDF documents. -->
+                    <div class="form-group file-group">
+                        <label for="national-id">Upload National ID</label>
+                        <input type="file" id="national-id" name="national-id"
+                               accept=".jpg,.jpeg,.pdf">
+                        <small>Accepted file types: JPG and PDF.</small>
+                    </div>
+
+                </div>
+
+                <!-- Next button requested in the assignment. -->
+                <div class="form-actions">
+                    <button type="submit">Next</button>
+                </div>
+            </fieldset>
+        </form>
+
+    </main>
+
+    <!-- FOOTER: Identifies the organisation represented by this practice page. -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Uganda Revenue Authority — TIN Registration Portal</p>
+    </footer>
+
+</body>
+</html>
